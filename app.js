@@ -45,14 +45,23 @@ class App {
 
 
     getMeal(){
-        let url = `https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=soup&app_id=8759285f&app_key=f5a5b7640e2000c5b8e7939c82341ea9`;
+        let random = Math.round(Math.random() * 10);
+        let url = `https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=cold&app_id=8759285f&app_key=f5a5b7640e2000c5b8e7939c82341ea9`;
+        let urlWarm = `https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=warm&app_id=8759285f&app_key=f5a5b7640e2000c5b8e7939c82341ea9`;
+        
+        // if temperature = > 17° warm meal else cold meal
+        // math random hetzelfde nummer instellen
+        // mooie interface maken met reclame voor hellofresh
         fetch(url).then(mealResponse => {
             return mealResponse.json();
         }).then(mealData => {
             console.log(mealData);
-            console.log(Math.round(Math.random() * 10))
+            console.log(random);
             document.querySelector("#meal").innerHTML = 
-                mealData.hits[Math.round(Math.random() * 10)].recipe.label;
+                mealData.hits[random].recipe.label;
+
+            document.querySelector("#mealImage").src = 
+                mealData.hits[random].recipe.image;
         }).catch(err => {
             console.log(err);
         })
