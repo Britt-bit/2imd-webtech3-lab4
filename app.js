@@ -5,8 +5,6 @@ class App {
         this.lng;
     }
 
-  
-
     getLocation(){
         navigator.geolocation.getCurrentPosition(
             this.gotLocation.bind(this), 
@@ -25,6 +23,8 @@ class App {
     getWeather(){
         let temperature = localStorage.getItem("temperature");
         let description = localStorage.getItem("description");
+        setTimeout(() => {localStorage.removeItem("temperature");}, 1000*60*60);
+        setTimeout(() => {localStorage.removeItem("description");}, 1000*60*60);
         if (temperature == null || temperature == "null"){
             console.log("nodata");
             let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/1b4646d678ca3d602e91ca76a3aee6b9/${this.lat},${this.lng}?units=si`;
