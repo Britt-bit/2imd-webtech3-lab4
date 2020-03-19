@@ -5,19 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            box-sizing: border-box;
+            text-align: center;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
         .border {
             width: 300px;
-            height: 250px;
-            background-color: red;
+            height: 600px;
+            background: linear-gradient(#2c3e50, #3498db);
+        }
+
+        .info{
+            display: flex;
+            flex-direction: column;
+        }
+        #weather {
+            padding-top: 0.5em;
+            font-size: 1.7em;
+        }
+        .time{
+            padding-top: 0.8em;
+            font-size: 1.1em;
+        }
+        #meal {
+            padding-top: 0.8em;
+            font-size: 0.8em;
+        }
+        #mealImage {
+            padding-top: 0.8em;
+            align-self: center;
+            width: 290px;
+            height: 200px;
+        }
+
+
+        .advertise {
+            padding-top: 0.8em;
+            font-size: 1.7em;
+        }
+
+        .logo{
+            padding-top: 0.5em;
+            width: 240px;
+            height: 160px;
+            align-self: baseline;
         }
     </style>
 </head>
 <body>
-    <div class="border">
+<div class="border">
+    <div class="info">
         <div id="weather"></div>
+
+        <p class="time">Time for some delicious food.</p>
         <div id="meal"></div>
-        <img id="mealImage" src="" alt="image" width="250" height="200">
+        <img id="mealImage" src="" alt="image">
     </div>
+        <p class="advertise">Get it now with hellofresh</p>
+        <img class="logo" src="https://cdn.hellofresh.com/de/cms/raf/hellofresh-logo.png" alt="logo hellofresh">
+</div>
+
+
     <script src="app.js"></script>
 
 </body>
